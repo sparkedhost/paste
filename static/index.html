@@ -6,6 +6,7 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="solarized_dark.css"/>
 		<link rel="stylesheet" type="text/css" href="application.css"/>
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rubik|Ubuntu+Mono&display=swap"/>
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="highlight.min.js"></script>
@@ -14,12 +15,15 @@
 		<meta name="robots" content="noindex,nofollow"/>
 
 		<script type="text/javascript">
-			var app = null;
+			let app = null;
 			// Handle pops
-			var handlePop = function(evt) {
-				var path = evt.target.location.pathname;
-				if (path === '/') { app.newDocument(true); }
-				else { app.loadDocument(path.substring(1, path.length)); }
+			let handlePop = function (evt) {
+				const path = evt.target.location.pathname;
+				if (path === '/') {
+					app.newDocument(true);
+				} else {
+					app.loadDocument(path.substring(1, path.length));
+				}
 			};
 			// Set up the pop state to handle loads, skipping the first load
 			// to make chrome behave like others:
