@@ -55,7 +55,7 @@ else {
 }
 
 // Compress the static javascript assets
-if (config.recompressStaticAssets) {
+/*if (config.recompressStaticAssets) {
   var list = fs.readdirSync('./static');
   for (var j = 0; j < list.length; j++) {
     var item = list[j];
@@ -67,7 +67,7 @@ if (config.recompressStaticAssets) {
       winston.info('compressed ' + item + ' into ' + dest);
     }
   }
-}
+}*/
 
 // Send the static documents into the preferred store, skipping expirations
 var path, data;
