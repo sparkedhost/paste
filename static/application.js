@@ -89,7 +89,7 @@ haste_document.prototype.save = function(data, callback) {
 
 ///// represents the paste application
 
-const haste = function (appName, options) {
+var haste = function (appName, options) {
   this.appName = appName;
   this.$textarea = $('textarea');
   this.$box = $('#box');
