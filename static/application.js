@@ -306,14 +306,19 @@ haste.prototype.configureButtons = function() {
       }
     },
     {
-      $where: $('#box2 .twitter'),
-      label: 'Twitter',
+      $where: $('#box2 .copyurl'),
+      label: 'Copy URL',
       shortcut: function(evt) {
-        return _this.options.twitter && _this.doc.locked && evt.shiftKey && evt.ctrlKey && evt.keyCode === 84;
+        return _this.options.copyurl && _this.doc.locked && evt.shiftKey && evt.ctrlKey && evt.keyCode === 84;
       },
       shortcutDescription: 'control + shift + t',
       action: function() {
-        window.open('https://twitter.com/share?url=' + encodeURI(window.location.href));
+        const $copy = $("<input>");
+        $("body").append($copy);
+        $copy.val($url).select();
+        document.execCommand("copy");
+        $copy.remove();
+        alert("Link copied to your clipboard!");
       }
     }
   ];

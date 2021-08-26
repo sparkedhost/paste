@@ -55,7 +55,7 @@ textarea {
 #key {
 	position: fixed;
 	top: 20px;
-	right: 50px;
+	right: 20px;
 	z-index: +1000; /* watch out */
 	border-radius: 10px; /* gotta add a radius here as well to fix the box-shadow borders */
 	box-shadow: 3px 5px 0px #00000066;
@@ -120,7 +120,7 @@ textarea {
 }
 
 #box3, #messages li {
-	background: #444444;
+	background: #303040;
 	font-family: 'Rubik', sans-serif;
 	font-size: 12px;
 	line-height: 14px;
@@ -156,9 +156,9 @@ textarea {
 #box2 .function.enabled.raw { background-position: -116px center; }
 #box2 .function.enabled.raw:hover { background-position: -116px bottom; }
 
-#box2 .function.twitter { background-position: -153px top; }
-#box2 .function.enabled.twitter { background-position: -153px center; }
-#box2 .function.enabled.twitter:hover { background-position: -153px bottom; }
+#box2 .function.copyurl { background-position: -153px top; }
+#box2 .function.enabled.copyurl { background-position: -153px center; }
+#box2 .function.enabled.copyurl:hover { background-position: -153px bottom; }
 #box2 .button-picture{ border-width: 0; font-size: inherit; }
 
 #messages {
