@@ -2,7 +2,7 @@
 
 	<head>
 
-		<title>hastebin</title>
+		<title>Welcome to Sparked Paste</title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="solarized_dark.css"/>
 		<link rel="stylesheet" type="text/css" href="application.css"/>
@@ -10,7 +10,7 @@
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="highlight.min.js"></script>
-		<script type="text/javascript" src="application.min.js"></script>
+		<script type="text/javascript" src="application.js"></script>
 
 		<meta name="robots" content="noindex,nofollow"/>
 
@@ -35,7 +35,7 @@
 			}, 1000);
 			// Construct app and load initial path
 			$(function() {
-				app = new haste('hastebin', { twitter: true });
+				app = new haste('Sparked Paste', { twitter: true });
 				handlePop({ target: window });
 			});
 		</script>
@@ -54,7 +54,7 @@
 				<button class="save function button-picture">Save</button>
 				<button class="new function button-picture">New</button>
 				<button class="duplicate function button-picture">Duplicate & Edit</button>
-				<button class="raw function button-picture">Just Text</button>
+				<button class="raw function button-picture">View Raw</button>
 				<button class="twitter function button-picture">Twitter</button>
 			</div>
 			<div id="box3" style="display:none;">
