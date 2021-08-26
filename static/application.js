@@ -337,10 +337,12 @@ haste.prototype.configureButton = function(options) {
   });
   // Show the label
   options.$where.mouseenter(function() {
-    $('#box3 .label').text(options.label);
-    $('#box3 .shortcut').text(options.shortcutDescription || '');
-    $('#box3').show();
-    $(this).append($('#pointer').remove().show());
+    if (options.$where.hasClass("enabled")) {
+      $('#box3 .label').text(options.label);
+      $('#box3 .shortcut').text(options.shortcutDescription || '');
+      $('#box3').show();
+      $(this).append($('#pointer').remove().show());
+    }
   });
   // Hide the label
   options.$where.mouseleave(function() {

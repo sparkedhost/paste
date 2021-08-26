@@ -58,7 +58,7 @@ textarea {
 	right: 20px;
 	z-index: +1000; /* watch out */
 	border-radius: 10px; /* gotta add a radius here as well to fix the box-shadow borders */
-	box-shadow: 3px 5px 0px #00000066;
+	box-shadow: 3px 3px 0px rgba(37, 50, 70, 0.17);
 }
 
 #box1 {
@@ -72,7 +72,7 @@ textarea {
 
 #box2 {
 	background: #262633;
-	font-size: 0px;
+	/*font-size: 0px;*/
 	padding: 0 10px;
 	transition: 0.2s all ease-in-out;
 	border-bottom-left-radius: 10px;
@@ -91,11 +91,22 @@ textarea {
 }
 
 #box2 .function {
-	background: url(function-icons.png);
-	width: 32px;
-	height: 37px;
+	background: transparent;
+	border: none;
+	color: #4C4C65;
+	box-shadow: none;
 	display: inline-block;
 	position: relative;
+	text-align: center;
+	padding: 12px 10px;
+}
+
+#box2 .function.enabled {
+	color: #8d8dbe;
+}
+
+#box2 .function.enabled:hover {
+	color: #fff;
 }
 
 #box2 .link embed {
@@ -140,6 +151,7 @@ textarea {
 	font-family: monospace;
 }
 
+/*
 #box2 .function.save { background-position: -5px top; }
 #box2 .function.enabled.save { background-position: -5px center; }
 #box2 .function.enabled.save:hover { background-position: -5px bottom; }
@@ -160,6 +172,7 @@ textarea {
 #box2 .function.enabled.copyurl { background-position: -153px center; }
 #box2 .function.enabled.copyurl:hover { background-position: -153px bottom; }
 #box2 .button-picture{ border-width: 0; font-size: inherit; }
+*/
 
 #messages {
 	position:fixed;
