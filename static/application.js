@@ -315,7 +315,7 @@ haste.prototype.configureButtons = function() {
       action: function() {
         const $copy = $("<input>");
         $("body").append($copy);
-        $copy.val($url).select();
+        $copy.val($(location).attr('href')).select();
         document.execCommand("copy");
         $copy.remove();
         alert("Link copied to your clipboard!");
