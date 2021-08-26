@@ -54,23 +54,29 @@ textarea {
 
 #key {
 	position: fixed;
-	top: 0px;
-	right: 0px;
+	top: 10px;
+	right: 10px;
 	z-index: +1000; /* watch out */
+	border-radius: 10px; /* gotta add a radius here as well to fix the box-shadow borders */
+	box-shadow: 3px 5px 0px #00000066;
 }
 
 #box1 {
-	padding: 5px;
+	padding: 10px;
 	text-align: center;
 	background: #363636;
 	transition: 0.2s all ease-in-out;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 }
 
 #box2 {
 	background: #414141;
 	font-size: 0px;
-	padding: 0px 5px;
+	padding: 0 10px;
 	transition: 0.2s all ease-in-out;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 #box1 a.logo, #box1 a.logo:visited {
@@ -119,6 +125,8 @@ textarea {
 	font-size: 12px;
 	line-height: 14px;
 	padding: 10px 15px;
+	border-radius: 10px;
+	margin-top: 2px;
 }
 
 #box3 .label, #messages li {
