@@ -1,8 +1,9 @@
-# Haste
+# Sparked Paste
 
 Welcome to our Sparked Paste service. We may ask you to visit this site in order to
 paste logs, or may have been sent a link to paste.sparked.host by one of our staff
-members. The main purpose of this tool is to share code snippets, configs, server logs, errors...
+members. The main purpose of this tool is to share code snippets, configs, server logs,
+errors...
 
 ## How to Use
 
@@ -22,13 +23,13 @@ pastes.
 
 ## Open Source
 
-This service is  powered by Sparked-Paste, a fork of the open-source project haste-server.
+This service is powered by Sparked-Paste, a fork of the open-source project haste-server.
 
 * [haste-client](https://github.com/seejohnrun/haste-client)
 * [Sparked-Paste](https://github.com/SparkedHost/Sparked-Paste)
 
 ## Author
 
-Code by John Crepezzi <john.crepezzi@gmail.com>
+Original code by John Crepezzi <john.crepezzi@gmail.com>
 Key Design by Brian Dawson <bridawson@gmail.com>
 Forked by Raúl M. <raul.m@sparkedhost.com>
