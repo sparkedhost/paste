@@ -137,6 +137,7 @@ textarea {
 #box3 .shortcut {
 	color: #909090;
 	font-weight: normal;
+	font-family: monospace;
 }
 
 #box2 .function.save { background-position: -5px top; }

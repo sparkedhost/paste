@@ -296,7 +296,7 @@ haste.prototype.configureButtons = function() {
     },
     {
       $where: $('#box2 .raw'),
-      label: 'Just Text',
+      label: 'View Raw',
       shortcut: function(evt) {
         return evt.ctrlKey && evt.shiftKey && evt.keyCode === 82;
       },
