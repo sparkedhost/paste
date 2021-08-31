@@ -1,9 +1,7 @@
-# Haste
+# Sparked Paste
 
-Haste is an open-source pastebin software written in node.js, which is easily
-installable in any network.  It can be backed by either redis or filesystem,
-and has a very easy adapter interface for other stores.  A publicly available
-version can be found at [hastebin.com](http://hastebin.com)
+Sparked Paste is a fork of the open-source project haste-server, modified to
+match the Sparked Host brand and with a couple different patches and improvements.
 
 Major design objectives:
 
@@ -20,22 +18,19 @@ to do things like:
 which will output a URL to share containing the contents of `cat something`'s
 STDOUT.  Check the README there for more details and usages.
 
-## Tested Browsers
-
-* Firefox 8
-* Chrome 17
-* Safari 5.3
-
 ## Installation
 
-1.  Download the package, and expand it
-2.  Explore the settings inside of config.js, but the defaults should be good
-3.  `npm install`
-4.  `npm start` (you may specify an optional `<config-path>` as well)
+1. Clone the repository: `git clone https://github.com/SparkedHost/Sparked-Paste`
+2. Explore the settings inside of config.js, but the defaults should be good.
+3. Run `npm install` to install all the required npm packages.
+4. Create the `hastes` directory: `mkdir hastes`
+5. `npm start` (you may specify an optional `<config-path>` as well)
+
+Read the wiki for a more in-depth installation guide.
 
 ## Settings
 
-* `host` - the host the server runs on (default localhost)
+* `host` - the host the server runs on (default 127.0.0.1)
 * `port` - the port the server runs on (default 7777)
 * `keyLength` - the length of the keys to user (default 10)
 * `maxLength` - maximum length of a paste (default 400000)
@@ -92,7 +87,7 @@ something like:
 
 ``` json
 {
-  "path": "./data",
+  "path": "./hastes",
   "type": "file"
 }
 ```
