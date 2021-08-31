@@ -94,7 +94,7 @@ var haste = function (appName, options) {
   this.$textarea = $('textarea');
   this.$box = $('#box');
   this.$code = $('#box code');
-  this.$linenos = $('#linenos');
+  this.$linenos = $('#lineNumbers');
   this.options = options;
   this.configureShortcuts();
   this.configureButtons();
@@ -194,12 +194,12 @@ haste.prototype.addLineNumbers = function(lineCount) {
   for (let i = 0; i < lineCount; i++) {
     h += (i + 1).toString() + '<br/>';
   }
-  $('#linenos').html(h);
+  $('#lineNumbers').html(h);
 };
 
 // Remove the line numbers
 haste.prototype.removeLineNumbers = function() {
-  $('#linenos').html('&gt;');
+  $('#lineNumbers').html('&gt;');
 };
 
 // Load a document and show it

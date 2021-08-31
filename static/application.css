@@ -1,5 +1,9 @@
 body {
-	background: #15151C;
+	background-color: #15151C;
+	background-image: url('background.png');
+	background-size: 40%;
+	background-repeat: no-repeat;
+	background-position: bottom right;
 	padding: 20px 50px;
 	margin: 0;
 }
@@ -26,7 +30,7 @@ code {
 
 /* the line numbers */
 
-#linenos {
+#lineNumbers {
 	color: #303040;
 	z-index: -1000;
 	position: absolute;
@@ -63,16 +67,22 @@ code {
 
 /* key */
 
-#key {
+div.box {
 	position: fixed;
 	top: 20px;
 	right: 20px;
 	z-index: +1000; /* watch out */
 	border-radius: 10px; /* gotta add a radius here as well to fix the box-shadow borders */
+	opacity: 0.4;
+	transition: 0.2s all ease-in-out;
+}
+
+div.box:hover {
+	opacity: 1;
 	box-shadow: 3px 3px 0px rgba(37, 50, 70, 0.17);
 }
 
-#box1 {
+div.box #box1 {
 	padding: 10px;
 	text-align: center;
 	background: #1D1D27;
@@ -81,7 +91,7 @@ code {
 	border-top-right-radius: 10px;
 }
 
-#box2 {
+div.box #box2 {
 	background: #262633;
 	/*font-size: 0px;*/
 	padding: 0 10px;
@@ -90,21 +100,21 @@ code {
 	border-bottom-right-radius: 10px;
 }
 
-#box1 a.logo, #box1 a.logo:visited {
+div.box #box1 a.logo, #box1 a.logo:visited {
 	display: inline-block;
 	background: url(logo.png);
 	width: 126px;
 	height: 42px;
 }
 
-#box1 a.logo:hover {
+div.box #box1 a.logo:hover {
 	background-position: 0 bottom;
 }
 
-#box2 .function {
+div.box #box2 .function {
 	background: transparent;
 	border: none;
-	color: #4C4C65;
+	color: #38384B;
 	box-shadow: none;
 	display: inline-block;
 	position: relative;
@@ -112,24 +122,24 @@ code {
 	padding: 12px 10px;
 }
 
-#box2 .function.enabled {
-	color: #8d8dbe;
+div.box #box2 .function.enabled {
+	color: #8585b2;
 }
 
-#box2 .function.enabled:hover {
-	color: #fff;
+div.box #box2 .function.enabled:hover {
+	color: #FFCE00;
 }
 
-#box2 .link embed {
+div.box #box2 .link embed {
 	vertical-align: bottom; /* fix for zeroClipboard style */
 }
 
-#box2 .function.enabled:hover {
+div.box #box2 .function.enabled:hover {
 	cursor: hand;
 	cursor: pointer;
 }
 
-#pointer {
+div.box #pointer {
 	display: block;
 	height: 5px;
 	width: 10px;
@@ -141,7 +151,7 @@ code {
 	right: 0px;
 }
 
-#box3, #messages li {
+div.box #box3, #messages li {
 	background: #303040;
 	font-family: 'Rubik', sans-serif;
 	font-size: 12px;
@@ -151,12 +161,12 @@ code {
 	margin-top: 2px;
 }
 
-#box3 .label, #messages li {
+div.box #box3 .label, #messages li {
 	color: #fff;
 	font-weight: bold;
 }
 
-#box3 .shortcut {
+div.box #box3 .shortcut {
 	color: #909090;
 	font-weight: normal;
 	font-family: monospace;
