@@ -29,7 +29,7 @@ STDOUT.  Check the README there for more details and usages.
 ## Installation
 
 1.  Download the package, and expand it
-2.  Explore the settings inside of config.js, but the defaults should be good
+2.  Explore the settings inside of config.json, but the defaults should be good
 3.  `npm install`
 4.  `npm start` (you may specify an optional `<config-path>` as well)
 
@@ -52,7 +52,7 @@ STDOUT.  Check the README there for more details and usages.
 
 When present, the `rateLimits` option enables built-in rate limiting courtesy
 of `connect-ratelimit`.  Any of the options supported by that library can be
-used and set in `config.js`.
+used and set in `config.json`.
 
 See the README for [connect-ratelimit](https://github.com/dharmafly/connect-ratelimit)
 for more information!
@@ -87,7 +87,7 @@ for the key.
 
 ### File
 
-To use file storage (the default) change the storage section in `config.js` to
+To use file storage (the default) change the storage section in `config.json` to
 something like:
 
 ``` json
