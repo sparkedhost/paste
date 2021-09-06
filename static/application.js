@@ -98,10 +98,6 @@ var haste = function (appName, options) {
   this.options = options;
   this.configureShortcuts();
   this.configureButtons();
-  // If twitter is disabled, hide the button
-  if (!options.twitter) {
-    $('#box2 .twitter').hide();
-  }
 };
 
 // Set the page title - include the appName
