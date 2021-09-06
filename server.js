@@ -159,4 +159,4 @@ app.use(connect_st({
 
 http.createServer(app).listen(config.port, config.host);
 
-winston.info('HTTP server created! Lstening on ' + config.host + ':' + config.port);
+winston.info('HTTP server created! Listening on ' + config.host + ':' + config.port);
