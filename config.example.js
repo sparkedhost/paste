@@ -9,8 +9,6 @@
 
   "staticMaxAge": 86400,
 
-  "recompressStaticAssets": true,
-
   "logging": [
     {
       "level": "verbose",
@@ -39,7 +37,7 @@
 
   "documents": {
     "about": "./about.md",
-    "howtouse": "howtouse.md"
+    "howtouse": "./howtouse.md"
   }
 
 }
