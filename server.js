@@ -1,14 +1,14 @@
-var http = require('http');
-var fs = require('fs');
+const http = require('http');
+const fs = require('fs');
 
-var uglify = require('uglify-js');
-var winston = require('winston');
-var connect = require('connect');
-var route = require('connect-route');
-var connect_st = require('st');
-var connect_rate_limit = require('connect-ratelimit');
+//const uglify = require('uglify-js');
+const winston = require('winston');
+const connect = require('connect');
+const route = require('connect-route');
+const connect_st = require('st');
+const connect_rate_limit = require('connect-ratelimit');
 
-var DocumentHandler = require('./lib/document_handler');
+const DocumentHandler = require('./lib/document_handler');
 
 // Load the configuration and set some defaults
 const configPath = process.argv.length <= 2 ? 'config.js' : process.argv[2];
@@ -42,7 +42,7 @@ if (!config.storage.type) {
   config.storage.type = 'file';
 }
 
-var Store, preferredStore;
+let Store, preferredStore;
 
 if (process.env.REDISTOGO_URL && config.storage.type === 'redis') {
   var redisClient = require('redis-url').connect(process.env.REDISTOGO_URL);
@@ -70,8 +70,8 @@ else {
 }*/
 
 // Send the static documents into the preferred store, skipping expirations
-var path, data;
-for (var name in config.documents) {
+let path, data;
+for (const name in config.documents) {
   path = config.documents[name];
   data = fs.readFileSync(path, 'utf8');
   winston.info('loading static document', { name: name, path: path });
@@ -86,20 +86,20 @@ for (var name in config.documents) {
 }
 
 // Pick up a key generator
-var pwOptions = config.keyGenerator || {};
+const pwOptions = config.keyGenerator || {};
 pwOptions.type = pwOptions.type || 'random';
-var gen = require('./lib/key_generators/' + pwOptions.type);
-var keyGenerator = new gen(pwOptions);
+const gen = require('./lib/key_generators/' + pwOptions.type);
+const keyGenerator = new gen(pwOptions);
 
 // Configure the document handler
-var documentHandler = new DocumentHandler({
+const documentHandler = new DocumentHandler({
   store: preferredStore,
   maxLength: config.maxLength,
   keyLength: config.keyLength,
   keyGenerator: keyGenerator
 });
 
-var app = connect();
+const app = connect();
 
 // Rate limit all requests
 if (config.rateLimits) {
@@ -110,7 +110,6 @@ if (config.rateLimits) {
 // first look at API calls
 app.use(route(function(router) {
   // get raw documents - support getting with extension
-
   router.get('/raw/:id', function(request, response) {
     return documentHandler.handleRawGet(request, response, config);
   });
@@ -120,7 +119,6 @@ app.use(route(function(router) {
   });
 
   // add documents
-
   router.post('/documents', function(request, response) {
     return documentHandler.handlePost(request, response);
   });
@@ -161,4 +159,4 @@ app.use(connect_st({
 
 http.createServer(app).listen(config.port, config.host);
 
-winston.info('listening on ' + config.host + ':' + config.port);
+winston.info('HTTP server created! Lstening on ' + config.host + ':' + config.port);
