@@ -5,7 +5,7 @@ node_modules
 data
 *.DS_Store
 .idea/
-config.js
+config.json
 
 # hastes storage
 hastes/
