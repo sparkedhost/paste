@@ -94,14 +94,10 @@ var haste = function (appName, options) {
   this.$textarea = $('textarea');
   this.$box = $('#box');
   this.$code = $('#box code');
-  this.$linenos = $('#linenos');
+  this.$linenos = $('#lineNumbers');
   this.options = options;
   this.configureShortcuts();
   this.configureButtons();
-  // If twitter is disabled, hide the button
-  if (!options.twitter) {
-    $('#box2 .twitter').hide();
-  }
 };
 
 // Set the page title - include the appName
@@ -125,7 +121,7 @@ haste.prototype.lightKey = function() {
 
 // Show the full key
 haste.prototype.fullKey = function() {
-  this.configureKey(['new', 'duplicate', 'twitter', 'raw']);
+  this.configureKey(['new', 'duplicate', 'copyurl', 'raw']);
 };
 
 // Set the key up for certain things to be enabled
@@ -194,12 +190,12 @@ haste.prototype.addLineNumbers = function(lineCount) {
   for (let i = 0; i < lineCount; i++) {
     h += (i + 1).toString() + '<br/>';
   }
-  $('#linenos').html(h);
+  $('#lineNumbers').html(h);
 };
 
 // Remove the line numbers
 haste.prototype.removeLineNumbers = function() {
-  $('#linenos').html('&gt;');
+  $('#lineNumbers').html('&gt;');
 };
 
 // Load a document and show it
@@ -306,14 +302,19 @@ haste.prototype.configureButtons = function() {
       }
     },
     {
-      $where: $('#box2 .twitter'),
-      label: 'Twitter',
+      $where: $('#box2 .copyurl'),
+      label: 'Copy URL',
       shortcut: function(evt) {
-        return _this.options.twitter && _this.doc.locked && evt.shiftKey && evt.ctrlKey && evt.keyCode === 84;
+        return _this.options.copyurl && _this.doc.locked && evt.shiftKey && evt.ctrlKey && evt.keyCode === 84;
       },
       shortcutDescription: 'control + shift + t',
       action: function() {
-        window.open('https://twitter.com/share?url=' + encodeURI(window.location.href));
+        const $copy = $("<input>");
+        $("body").append($copy);
+        $copy.val($(location).attr('href')).select();
+        document.execCommand("copy");
+        $copy.remove();
+        alert("Link copied to your clipboard!");
       }
     }
   ];
@@ -332,10 +333,12 @@ haste.prototype.configureButton = function(options) {
   });
   // Show the label
   options.$where.mouseenter(function() {
-    $('#box3 .label').text(options.label);
-    $('#box3 .shortcut').text(options.shortcutDescription || '');
-    $('#box3').show();
-    $(this).append($('#pointer').remove().show());
+    if (options.$where.hasClass("enabled")) {
+      $('#box3 .label').text(options.label);
+      $('#box3 .shortcut').text(options.shortcutDescription || '');
+      $('#box3').show();
+      $(this).append($('#pointer').remove().show());
+    }
   });
   // Hide the label
   options.$where.mouseleave(function() {

@@ -7,6 +7,8 @@
 		<link rel="stylesheet" type="text/css" href="solarized_dark.css"/>
 		<link rel="stylesheet" type="text/css" href="application.css"/>
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rubik|Ubuntu+Mono&display=swap"/>
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"/>
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css">
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="highlight.min.js"></script>
@@ -45,17 +47,17 @@
 	<body>
 		<ul id="messages"></ul>
 
-		<div id="key">
+		<div class="box">
 		  <div id="pointer" style="display:none;"></div>
 			<div id="box1">
 				<a href="/about.md" class="logo"></a>
 			</div>
 			<div id="box2">
-				<button class="save function button-picture">Save</button>
-				<button class="new function button-picture">New</button>
-				<button class="duplicate function button-picture">Duplicate & Edit</button>
-				<button class="raw function button-picture">View Raw</button>
-				<button class="twitter function button-picture">Twitter</button>
+				<a class="function save button-picture"><i class="fas fa-save"></i></a>
+				<a class="function new button-picture"><i class="far fa-file"></i></a>
+				<a class="function duplicate button-picture"><i class="far fa-copy"></i></a>
+				<a class="function raw button-picture"><i class="fas fa-code"></i></a>
+				<a class="function copyurl button-picture"><i class="fas fa-link"></i></a>
 			</div>
 			<div id="box3" style="display:none;">
 				<div class="label"></div>
@@ -63,7 +65,7 @@
 			</div>
 		</div>
 
-		<div id="linenos"></div>
+		<div id="lineNumbers"></div>
 		<pre id="box" style="display:none;" class="hljs" tabindex="0"><code></code></pre>
 		<textarea spellcheck="false" style="display:none;"></textarea>
 

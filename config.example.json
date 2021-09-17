@@ -39,7 +39,7 @@
 
   "documents": {
     "about": "./about.md",
-    "howtouse": "howtouse.md"
+    "howtouse": "./howtouse.md"
   }
 
 }

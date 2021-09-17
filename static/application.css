@@ -1,5 +1,9 @@
 body {
-	background: #2b2b2b;
+	background-color: #15151C;
+	background-image: url('background.png');
+	background-size: 40%;
+	background-repeat: no-repeat;
+	background-position: bottom right;
 	padding: 20px 50px;
 	margin: 0;
 }
@@ -13,24 +17,35 @@ textarea {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	font-family: monospace;
+	font-family: 'Fira Code', monospace;
 	outline: none;
 	resize: none;
 	font-size: 14px;
 }
 
+/* code - viewing an existing document */
+code {
+	font-family: 'Fira Code', monospace;
+}
+
 /* the line numbers */
 
-#linenos {
-	color: #7d7d7d;
+#lineNumbers {
+	color: #303040;
 	z-index: -1000;
 	position: absolute;
 	top: 20px;
 	left: 0px;
 	width: 30px; /* 30 to get 20 away from box */
 	font-size: 14px;
-	font-family: monospace;
+	font-family: 'Fira Code', monospace;
 	text-align: right;
+}
+
+@supports (font-variation-settings: normal) {
+	textarea, code, #lineNumbers {
+		font-family: 'Fira Code VF', monospace;
+	}
 }
 
 /* code box when locked */
@@ -52,62 +67,79 @@ textarea {
 
 /* key */
 
-#key {
+div.box {
 	position: fixed;
-	top: 10px;
-	right: 10px;
+	top: 20px;
+	right: 20px;
 	z-index: +1000; /* watch out */
 	border-radius: 10px; /* gotta add a radius here as well to fix the box-shadow borders */
-	box-shadow: 3px 5px 0px #00000066;
+	opacity: 0.4;
+	transition: 0.2s all ease-in-out;
 }
 
-#box1 {
+div.box:hover {
+	opacity: 1;
+	box-shadow: 3px 3px 0px rgba(37, 50, 70, 0.17);
+}
+
+div.box #box1 {
 	padding: 10px;
 	text-align: center;
-	background: #363636;
+	background: #1D1D27;
 	transition: 0.2s all ease-in-out;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
 
-#box2 {
-	background: #414141;
-	font-size: 0px;
+div.box #box2 {
+	background: #262633;
+	/*font-size: 0px;*/
 	padding: 0 10px;
 	transition: 0.2s all ease-in-out;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
 
-#box1 a.logo, #box1 a.logo:visited {
+div.box #box1 a.logo, #box1 a.logo:visited {
 	display: inline-block;
 	background: url(logo.png);
 	width: 126px;
 	height: 42px;
 }
 
-#box1 a.logo:hover {
+div.box #box1 a.logo:hover {
 	background-position: 0 bottom;
 }
 
-#box2 .function {
-	background: url(function-icons.png);
-	width: 32px;
-	height: 37px;
+div.box #box2 .function {
+	background: transparent;
+	border: none;
+	color: #38384B;
+	box-shadow: none;
 	display: inline-block;
 	position: relative;
+	text-align: center;
+	padding: 12px 10px;
 }
 
-#box2 .link embed {
+div.box #box2 .function.enabled {
+	color: #8585b2;
+}
+
+div.box #box2 .function.enabled:hover {
+	color: #FFCE00;
+}
+
+div.box #box2 .link embed {
 	vertical-align: bottom; /* fix for zeroClipboard style */
 }
 
-#box2 .function.enabled:hover {
+div.box #box2 .function.enabled:hover {
 	cursor: hand;
 	cursor: pointer;
 }
 
-#pointer {
+div.box #pointer {
 	display: block;
 	height: 5px;
 	width: 10px;
@@ -119,8 +151,8 @@ textarea {
 	right: 0px;
 }
 
-#box3, #messages li {
-	background: #444444;
+div.box #box3, #messages li {
+	background: #303040;
 	font-family: 'Rubik', sans-serif;
 	font-size: 12px;
 	line-height: 14px;
@@ -129,39 +161,18 @@ textarea {
 	margin-top: 2px;
 }
 
-#box3 .label, #messages li {
+div.box #box3 .label, #messages li {
 	color: #fff;
 	font-weight: bold;
 }
 
-#box3 .shortcut {
+div.box #box3 .shortcut {
 	color: #909090;
 	font-weight: normal;
 	font-family: monospace;
 }
 
-#box2 .function.save { background-position: -5px top; }
-#box2 .function.enabled.save { background-position: -5px center; }
-#box2 .function.enabled.save:hover { background-position: -5px bottom; }
-
-#box2 .function.new { background-position: -42px top; }
-#box2 .function.enabled.new { background-position: -42px center; }
-#box2 .function.enabled.new:hover { background-position: -42px bottom; }
-
-#box2 .function.duplicate { background-position: -79px top; }
-#box2 .function.enabled.duplicate { background-position: -79px center; }
-#box2 .function.enabled.duplicate:hover { background-position: -79px bottom; }
-
-#box2 .function.raw { background-position: -116px top; }
-#box2 .function.enabled.raw { background-position: -116px center; }
-#box2 .function.enabled.raw:hover { background-position: -116px bottom; }
-
-#box2 .function.twitter { background-position: -153px top; }
-#box2 .function.enabled.twitter { background-position: -153px center; }
-#box2 .function.enabled.twitter:hover { background-position: -153px bottom; }
-#box2 .button-picture{ border-width: 0; font-size: inherit; }
-
-#messages {
+ul#messages {
 	position:fixed;
 	top:0px;
 	right:138px;
@@ -170,12 +181,12 @@ textarea {
 	width:400px;
 }
 
-#messages li {
+ul#messages li {
 	background:rgba(23,62,72,0.8);
 	margin:0 auto;
 	list-style:none;
 }
 
-#messages li.error {
+ul#messages li.error {
 	background:rgba(102,8,0,0.8);
 }
