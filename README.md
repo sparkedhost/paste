@@ -21,10 +21,11 @@ STDOUT.  Check the README there for more details and usages.
 ## Installation
 
 1. Clone the repository: `git clone https://github.com/SparkedHost/Sparked-Paste`
-2. Explore the settings inside of config.js, but the defaults should be good.
-3. Run `npm install` to install all the required npm packages.
-4. Create the `hastes` directory: `mkdir hastes`
-5. `npm start` (you may specify an optional `<config-path>` as well)
+2. Copy the config.example.json file to config.json: `cp config.sample.json config.json`
+3. Explore the settings inside of config.json, but the defaults should be good.
+4. Run `npm install` to install all the required npm packages.
+5. Create the `hastes` directory: `mkdir hastes`
+6. `npm start` (you may specify an optional `<config-path>` as well)
 
 Read the wiki for a more in-depth installation guide.
 
